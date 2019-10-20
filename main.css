@@ -1,0 +1,93 @@
+/* will apply different styles to all before and all after  */
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+:root {
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+
+body{
+    --hue: var(--hue-neutral);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    /* It's possible to set hues using variables
+    Check the root to see where this is defined */
+    background-color: hsl(var(--hue), 100%, 20%);
+}
+
+body.correct {
+    --hue: var(--hue-correct);
+}
+
+body.wrong {
+    --hue: var(--hue-wrong);
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: skyblue;
+    border-radius: 5px;
+    padding: 10px;
+    /* x-offset, y-offset, blur, spread */
+    box-shadow: 0 0 10px 2px;
+}
+
+/* Controls answer grid style */
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+
+/* Controls display for generic button */
+.btn {
+    --hue: var(--hue-neutral):
+    border: 1px solid hsl(var(--hue) 100%, 30%);
+    background-color: hsl(var(--hue) 100%, 50%);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.btn:hover{
+    border-color: black
+}
+
+.btn.wrong{
+    --hue: var(--hue-wrong);
+    color: black;
+}
+.btn.correct{
+    --hue: var(--hue-correct);
+    color: black;
+}
+
+.start-button, .next-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Don't display as long as it has this class */
+
+.hide {
+    display: none;
+}
